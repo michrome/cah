@@ -16,12 +16,12 @@
             <label for="who">Send it to:</label>
             <select id="who" name="who" required="required">
                 <option disabled selected value></option>
-                <option>Andrew</option>
-                <option>Anthony</option>
-                <option>Clare</option>
-                <option>Julia</option>
-                <option>Katie</option>
-                <option>Mike</option>
+                {% if name!="Andrew" %}<option>Andrew</option>{% endif %}
+                {% if name!="Anthony" %}<option>Anthony</option>{% endif %}
+                {% if name!="Clare" %}<option>Clare</option>{% endif %}
+                {% if name!="Julia" %}<option>Julia</option>{% endif %}
+                {% if name!="Katie" %}<option>Katie</option>{% endif %}
+                {% if name!="Mike" %}<option>Mike</option>{% endif %}
               </select>
 
             <input type="hidden" name="postedBy" value="{{ name }}"/>
