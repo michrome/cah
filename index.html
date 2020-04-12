@@ -2,11 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>cards-against-anthony</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
   </head>
   <body>
-    <form name="answer" method="POST" data-netlify="true">
+    <form class="pure-form pure-form-stacked">
+        <fieldset>
+            <label for="answer">Answer:</label>
+            <textarea id="answer" name="answer" placeholder="Copy your answer here" rows="4" cols="30"></textarea>
+    
+            <label for="who">Send it to:</label>
+            <select id="who" name="who">
+                <option>Andrew</option>
+                <option>Anthony</option>
+                <option>Clare</option>
+                <option>Julia</option>
+                <option>Katie</option>
+                <option>Mike</option>
+              </select>
+    
+            <button type="submit" class="pure-button pure-button-primary">Send answer</button>
+        </fieldset>
+    </form>
+
+    <form class="pure-form pure-form-stacked">
+        <fieldset>
+            <legend>A Stacked Form</legend>
+    
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Email">
+            <span class="pure-form-message">This is a required field.</span>
+    
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Password">
+    
+            <label for="state">State</label>
+            <select id="state">
+                <option>AL</option>
+                <option>CA</option>
+                <option>IL</option>
+            </select>
+    
+            <label for="remember" class="pure-checkbox">
+                <input id="remember" type="checkbox"> Remember me
+            </label>
+    
+            <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+        </fieldset>
+    </form>
+
+
+
+    <!-- <form name="answer" method="POST" data-netlify="true">
       <label for="answer">Answer:</label>
       <textarea id="answer" name="answer"></textarea>
       <br />
@@ -21,6 +69,6 @@
       </select>
       <br />
       <button type="submit">Send your answer</button>
-    </form>
+    </form> -->
   </body>
 </html>
