@@ -8,8 +8,9 @@ exports.handler = async (event) => {
   //       statusCode: 200,
   //       body: JSON.stringify(submissions),
   //     }
+  var body = JSON.parse(event.body)
   return {
     statusCode: 200,
-    body: JSON.stringify(event.body)
+    body: JSON.stringify(body)
   }
 }
