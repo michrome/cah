@@ -13,7 +13,8 @@ exports.handler = async (event) => {
       rejectUnauthorized: false,
     },
   })
-  sql `INSERT INTO answers (who, postedby, answer) VALUES (${parsed.who}, ${parsed.postedBy}, ${parsed.answer})`
+  const pgresult = await sql`INSERT INTO answers (who, postedby, answer) VALUES (${parsed.who}, ${parsed.postedBy}, ${parsed.answer})`
+  console.log(pgresult)
 
   return {
     statusCode: 302,
