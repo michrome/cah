@@ -37,19 +37,19 @@
     <div id="app">
       <h3 v-if="this.message.length != 0">Answers</h3>
       <div v-for="item in message" class="answer">{% raw %}{{ item.answer }}{% endraw %}</div>
-
-    </div>
-    <p id="cat" style="text-align: center;">
       {% if name=="Anthony" %}
-        <img src="https://static.hotoldermale.com/_thumbs/scn_283_7f4769237566df0699a417e77cd497b6.jpg" />
-      {% elif name=="Andrew" %}
+        <img v-if="this.message.length != 0" src="https://static.hotoldermale.com/_thumbs/scn_283_7f4769237566df0699a417e77cd497b6.jpg" />
+      {% endif %}
+    </div>
+    <p id="cat" style="text-align: center; font-size: 3em;">
+      {% if name=="Andrew" %}
         🕺
       {% elif name=="Clare" %}
         🧘‍♀️
       {% else %}
         💜
       {% endif %}
-      </p>
+    </p>
 
     <script>
       var app = new Vue({
