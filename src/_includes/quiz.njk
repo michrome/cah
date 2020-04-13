@@ -23,12 +23,12 @@
       <textarea id="answer" name="answer" rows="3" placeholder="Type your answer here…" required="required"></textarea>
       <fieldset>
         <legend>Send it to</legend>
-          {% if name!="Andrew" %}<input type="radio" id="Andrew" name="who" value="Andrew"><label for="Andrew">Andrew</label><br />{% endif %}
-          {% if name!="Anthony" %}<input type="radio" id="Anthony" name="who" value="Anthony"><label for="Anthony">Anthony</label><br />{% endif %}
-          {% if name!="Clare" %}<input type="radio" id="Clare" name="who" value="Clare"><label for="Clare">Clare</label><br />{% endif %}
-          {% if name!="Julia" %}<input type="radio" id="Julia" name="who" value="Julia"><label for="Julia">Julia</label><br />{% endif %}
-          {% if name!="Katie" %}<input type="radio" id="Katie" name="who" value="Katie"><label for="Katie">Katie</label><br />{% endif %}
-          {% if name!="Mike" %}<input type="radio" id="Mike" name="who" value="Mike"><label for="Mike">Mike</label><br />{% endif %}
+          <input type="radio" id="Andrew" name="who" value="Andrew"><label for="Andrew">Andrew{% if name=="Andrew" %} (me){% endif %}</label><br />
+          <input type="radio" id="Anthony" name="who" value="Anthony"><label for="Anthony">Anthony{% if name=="Anthony" %} (me){% endif %}</label><br />
+          <input type="radio" id="Clare" name="who" value="Clare"><label for="Clare">Clare{% if name=="Clare" %} (me){% endif %}</label><br />
+          <input type="radio" id="Julia" name="who" value="Julia"><label for="Julia">Julia{% if name=="Julia" %} (me){% endif %}</label><br />
+          <input type="radio" id="Katie" name="who" value="Katie"><label for="Katie">Katie{% if name=="Katie" %} (me){% endif %}</label><br />
+          <input type="radio" id="Mike" name="who" value="Mike"><label for="Mike">Mike{% if name=="Mike" %} (me){% endif %}</label><br />
       </fieldset>
       <input type="hidden" name="postedBy" value="{{ name }}"/>
       <button type="submit">Send answer</button>
@@ -38,7 +38,9 @@
       <h3 v-if="this.message.length != 0">Answers</h3>
       <div v-for="item in message" class="answer">{% raw %}{{ item.answer }}{% endraw %}</div>
       {% if name=="Anthony" %}
-        <img v-if="this.message.length != 0" src="https://static.hotoldermale.com/_thumbs/scn_283_7f4769237566df0699a417e77cd497b6.jpg" />
+        <img v-if="this.message.length == 5" src="https://static.hotoldermale.com/_thumbs/scn_283_7f4769237566df0699a417e77cd497b6.jpg" />
+      {% elif name=="Andrew" %}
+        <img v-if="this.message.length == 3" src="https://static.hotoldermale.com/_thumbs/scn_283_7f4769237566df0699a417e77cd497b6.jpg" />
       {% endif %}
     </div>
     <p id="cat" style="text-align: center; font-size: 3em;">

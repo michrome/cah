@@ -23,7 +23,7 @@
       <textarea id="answer" name="answer" rows="3" placeholder="Type your answer here…" required="required"></textarea>
       <fieldset>
         <legend>Send it to</legend>
-          
+          <input type="radio" id="Andrew" name="who" value="Andrew"><label for="Andrew">Andrew (me)</label><br />
           <input type="radio" id="Anthony" name="who" value="Anthony"><label for="Anthony">Anthony</label><br />
           <input type="radio" id="Clare" name="who" value="Clare"><label for="Clare">Clare</label><br />
           <input type="radio" id="Julia" name="who" value="Julia"><label for="Julia">Julia</label><br />
@@ -37,6 +37,8 @@
     <div id="app">
       <h3 v-if="this.message.length != 0">Answers</h3>
       <div v-for="item in message" class="answer">{{ item.answer }}</div>
+      
+        <img v-if="this.message.length == 3" src="https://static.hotoldermale.com/_thumbs/scn_283_7f4769237566df0699a417e77cd497b6.jpg" />
       
     </div>
     <p id="cat" style="text-align: center; font-size: 3em;">
