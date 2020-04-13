@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "netlify-lambda serve functions",
-    "build": "netlify-lambda build functions"
+    "start": "netlify-lambda serve src/functions",
+    "build": "netlify-lambda build src/functions",
+    "lambda-serve": "netlify-lambda serve src/functions",
+    "lambda-build": "netlify-lambda build src/functions",
+    "dev": "concurrently \"npx @11ty/eleventy --serve\" \"npm run lambda-serve\""
   },
   "repository": {
     "type": "git",
@@ -20,9 +23,21 @@
   "homepage": "https://github.com/michrome/cah#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "netlify-lambda": "^1.6.3"
+    "concurrently": "^5.1.0",
+    "dotenv": "^8.2.0",
+    "netlify-lambda": "^1.6.3",
+    "postgres": "^1.0.2",
+    "query-string": "^6.12.1"
   },
   "dependencies": {
     "netlify": "^4.0.4"
+  },
+  "proxy": {
+    "/.netlify/functions": {
+      "target": "http://localhost:9000",
+      "pathRewrite": {
+        "^/\\.netlify/functions": ""
+      }
+    }
   }
 }
