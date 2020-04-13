@@ -26,7 +26,7 @@ exports.handler = async (event) => {
     ORDER BY
         postedby, createdat DESC
     LIMIT
-        5
+        6
     `
   //console.log(pgresult)
   sql.end({ timeout: 2 })
