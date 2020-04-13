@@ -14,7 +14,6 @@ exports.handler = async (event) => {
     },
   })
   sql `INSERT INTO answers (who, postedby, answer) VALUES (${parsed.who}, ${parsed.postedBy}, ${parsed.answer})`
-  console.log(answer)
 
   return {
     statusCode: 302,
