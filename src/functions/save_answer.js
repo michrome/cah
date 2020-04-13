@@ -15,6 +15,7 @@ exports.handler = async (event) => {
   })
   const pgresult = await sql`INSERT INTO answers (who, postedby, answer) VALUES (${parsed.who}, ${parsed.postedBy}, ${parsed.answer})`
   console.log(pgresult)
+  sql.end({ timeout: 2 })
 
   return {
     statusCode: 302,
