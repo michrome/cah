@@ -38,7 +38,11 @@
       <h3 v-if="this.message.length != 0">Answers</h3>
       <div v-for="item in message" class="answer">{% raw %}{{ item.answer }}{% endraw %}</div>
       <p id="cat" style="text-align: center;">
+      {% if name!="Anthony" %}
+        <img src="https://static.hotoldermale.com/_thumbs/scn_283_7f4769237566df0699a417e77cd497b6.jpg" />
+      {% else %}
         <img src="https://cataas.com/cat?width=300" />
+      {% endif %}
       </p>
     </div>
 
