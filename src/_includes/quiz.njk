@@ -37,6 +37,9 @@
     <div id="app">
       <h3 v-if="this.message.length != 0">Answers</h3>
       <div v-for="item in message" class="answer">{% raw %}{{ item.answer }}{% endraw %}</div>
+      <p id="cat" style="text-align: center;">
+        <img src="https://cataas.com/cat?width=300" />
+      </p>
     </div>
 
     <script>
