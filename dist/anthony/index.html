@@ -4,41 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Anthony's Page</title>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+      .answer {
+        white-space: pre-line;
+        padding: 0.5em 0;
+        border-top: 1px dashed gray;
+      }
+      .answer:nth-child(even){
+        background-color: #f9f9f9;
+      }
+    </style>
   </head>
   <body>
-    <form class="pure-form pure-form-stacked" name="answer" method="POST" action="/.netlify/functions/save_answer">
-        <fieldset>
-          <legend>Anthony's Page</legend>
-            <label for="answer">Answer:</label>
-            <textarea id="answer" name="answer" placeholder="Type your answer here" rows="4" cols="30" required="required"></textarea>
-    
-            <label for="who">Send it to:</label>
-            <select id="who" name="who" required="required">
-                <option disabled selected value></option>
-                <option>Andrew</option>
-                
-                <option>Clare</option>
-                <option>Julia</option>
-                <option>Katie</option>
-                <option>Mike</option>
-              </select>
-
-            <input type="hidden" name="postedBy" value="Anthony"/>
-    
-            <button type="submit" class="pure-button pure-button-primary">Send answer</button>
-        </fieldset>
+    <h3>Anthony's Page</h3>
+    <form name="answer" method="POST" action="/.netlify/functions/save_answer">
+      <textarea id="answer" name="answer" rows="3" placeholder="Type your answer here…" required="required"></textarea>
+      <fieldset>
+        <legend>Send it to</legend>
+          <input type="radio" id="Andrew" name="who" value="Andrew"><label for="Andrew">Andrew</label><br />
+          
+          <input type="radio" id="Clare" name="who" value="Clare"><label for="Clare">Clare</label><br />
+          <input type="radio" id="Julia" name="who" value="Julia"><label for="Julia">Julia</label><br />
+          <input type="radio" id="Katie" name="who" value="Katie"><label for="Katie">Katie</label><br />
+          <input type="radio" id="Mike" name="who" value="Mike"><label for="Mike">Mike</label><br />
+      </fieldset>
+      <input type="hidden" name="postedBy" value="Anthony"/>
+      <button type="submit">Send answer</button>
     </form>
 
     <div id="app">
-      <ol>
-        <li v-for="item in message">
-          
-            {{ item.answer }}
-          
-        </li>
-      </ol>
+      <h3 v-if="this.message.length != 0">Answers</h3>
+      <div v-for="item in message" class="answer">{{ item.answer }}</div>
     </div>
 
     <script>
@@ -65,7 +63,7 @@
                     return 0;
                   });
                 });
-            }, 3000)
+            }, 5000)
           }
         },
         beforeDestroy () {

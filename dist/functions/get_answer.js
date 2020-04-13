@@ -8,7 +8,7 @@
     FROM
         answers
     WHERE
-        createdat > NOW() - INTERVAL '10 minutes'
+        createdat > NOW() - INTERVAL '5 minutes'
         AND
         who = ${t}
     ORDER BY

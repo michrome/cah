@@ -20,7 +20,7 @@ exports.handler = async (event) => {
     FROM
         answers
     WHERE
-        createdat > NOW() - INTERVAL '10 minutes'
+        createdat > NOW() - INTERVAL '5 minutes'
         AND
         who = ${ answersFor }
     ORDER BY
