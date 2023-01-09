@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/michrome/cah#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy": "^1.0.2",
     "concurrently": "^5.1.0",
     "dotenv": "^8.2.0",
     "netlify-lambda": "^1.6.3",
